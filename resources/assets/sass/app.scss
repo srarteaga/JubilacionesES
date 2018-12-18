@@ -1,0 +1,36 @@
+
+// Fonts
+
+// font awesome
+
+// Variables
+//@import "variables";
+
+
+// Font awesome
+$fa-font-path:"~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
+// @import "~gijgo/css/gijgo";
+
+//core styles
+//@import "core-styles";
+
+// Import Bootstrap source files (Required file)
+@import "~bootstrap/scss/bootstrap";
+
+//This is for the components (Required file)
+//@import 'components';
+
+//This is for the widgets (Required file)
+//@import 'widgets/widgets';
+
+//This is for the responsive (Required file)
+//@import 'responsive';
+
+//In This scss you can write your scss
+//@import 'custom'; 
+
+//This is for the icons (Required file)
+
+//@import "../material-design-iconic-font/css/materialdesignicons.min.css";

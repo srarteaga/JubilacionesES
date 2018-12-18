@@ -1,0 +1,111 @@
+h3{
+  padding: 40px 25px;
+  font-weight: 600 !important;
+}
+.separar{
+  padding: 20px 20px;
+}
+.orden-fload{
+	text-align: right;
+}
+.table-jubilado{
+	width: 60% !important;
+}
+@media all and (max-width: 770px) {
+ 	
+	.orden-fload{
+		text-align: center;
+	}
+
+}
+
+@media all and (max-width: 1030px) {
+ 	
+	.orden-fload{
+		text-align: left;
+	}
+}
+
+@media all and (min-width: 1180px) {
+	.Table-Titulo{
+		font-size: 9px !important;
+	}
+	.Table-Content{
+		font-size: 9px !important;
+	}
+}
+@media all and (min-width: 1260px) {
+	.Table-Titulo{
+		font-size: 11px !important;
+	}
+	.Table-Content{
+		font-size: 11px !important;
+	}
+	.Ocultar-organismo{
+		display: none;
+	}
+}
+@media all and (min-width: 1500px) {
+	.Table-Titulo{
+		font-size: 14px !important;
+	}
+	.Table-Content{
+		font-size: 12px !important;
+	}
+
+}
+
+.List-table{
+	
+	padding: 15px 15px 15px 15px;
+	border-radius: 10px;
+	border: 3px solid;
+	border-color: #08469e !important;
+	border-style: ridge;
+
+}
+.Table-Titulo{
+	font-size: 8px;
+	text-align: center !important;
+}
+.Table-Content{
+	font-size: 8px;
+}
+.puntero-mano{
+	cursor: pointer;
+}
+.Table-Content:hover{
+
+	color: #0094fb !important;
+
+}
+.button-summit{
+	background: #08469e !important; 
+    color: white !important;
+    font-size: 16px !important;
+}
+.Font-page{
+	font-size: 10px;
+}
+
+.app,
+app-dashboard,
+app-root {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 1024px) {
+	.ente-hide{
+		display: none;
+	}
+
+}
+@media screen and (max-width: 820px) {
+	.fecha-hide{
+		display: none;
+	}
+}
