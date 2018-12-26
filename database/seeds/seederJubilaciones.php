@@ -13,7 +13,8 @@ class seederJubilaciones extends Seeder
     {
         $dato = array( 
        	array('1','Empleado'),
-  		array('2','Obrero')
+  		array('2','Obrero'),
+  		array('3','Mixta')
 
         );
        	foreach ($dato as $v) {

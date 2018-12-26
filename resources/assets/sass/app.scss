@@ -11,13 +11,14 @@
 $fa-font-path:"~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome";
 
-// @import "~gijgo/css/gijgo";
 
 //core styles
 //@import "core-styles";
 
 // Import Bootstrap source files (Required file)
 @import "~bootstrap/scss/bootstrap";
+
+@import "~datatables/media/css/jquery.dataTables";
 
 //This is for the components (Required file)
 //@import 'components';

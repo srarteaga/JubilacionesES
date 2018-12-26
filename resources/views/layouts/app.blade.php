@@ -12,7 +12,6 @@
   <title>{{ config('', 'Jubilaciones Especiales') }}</title>
 
   <!-- Styles -->
-  <link href="{{ asset('css/gijgo.css') }}" rel="stylesheet">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('img/bandera.png') }}" rel="icon">
   <link href="{{ asset('css/float-chart.css') }}" rel="stylesheet">

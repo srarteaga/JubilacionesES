@@ -23,11 +23,6 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-window.Gijgo = require('gijgo');
-
-
-
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -40,20 +35,7 @@ const app = new Vue({
     el: '#app'
 });
 
-
-$('#fecha_recibido').datepicker({
-    uiLibrary: 'bootstrap4',
-    format: 'dd-mm-yyyy'
-});
-
-$('#fecha_oficio').datepicker({
-    uiLibrary: 'bootstrap4',
-    format: 'dd-mm-yyyy'
-
-});
-
-
-$(document).ready(function () {
+/*$(document).ready(function () {
     var data, grid;
     $.get("list", function(data){
         grid = $('#grid').grid({
@@ -112,7 +94,7 @@ $(document).ready(function () {
         });
         
 
-       /* var ancho= screen.width;
+        var ancho= screen.width;
 
         $(window).resize(function(){
             var ancho = $(window).width();
@@ -144,7 +126,8 @@ $(document).ready(function () {
             }
             else{
                 $('tfoot tr th').attr('colspan',6);
-            }*/
+            }
     });
 });
 
+*/

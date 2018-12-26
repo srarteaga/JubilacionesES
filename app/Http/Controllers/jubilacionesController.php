@@ -18,8 +18,8 @@ class jubilacionesController extends Controller
      */
     public function index()
     {
-       $Jubilado = Nomina::all();
-       return $personas;
+       $jubilado = Jubilado::orderBy('id', 'DESC')->get();
+        return view('consultar',compact('jubilado'));
 
     }
 
