@@ -83,19 +83,10 @@
             <hr>
             <div class="row">
               <label class="col-sm-2 text-right control-label col-form-label-lg">Organismo</label>
-                <div class="col-md-10">
-                  <organismos></organismos>
-                <select class="custom-select custom-select-lg col-md-5" id="categoria_ente" v-model="categoria_ente">
-                    <option disabled value="">Seleccione una categoria</option>
-                    <option v-for="elmento in categorias" :value="elmento.categoria">@{{ elmento.categoria }}</option>
-                </select>
+              <div class="col-md-10">
+                <organismos></organismos>
+              </div>
 
-                <label class="col-md-1 col-form-label-lg text-center" v-show="categoria_ente">Entes</label>
-                <select class="col-md-5 custom-select custom-select-lg" id="ente_id" v-model="ente_id" v-show="categoria_ente" name="ente_id">
-                    <option disabled value="">Seleccione un ente</option>
-                    <option v-for="item in searchList" :value="item.id">@{{ item.nombre_ente }}</option>
-                </select>
-                </div>
               <label class="col-sm-3 text-right control-label col-form-label-lg">Observación</label>
               <div class="col-md-9">
                 <textarea class="form-control form-control-lg col-md-8" id="observacion" name="observacion"></textarea>
@@ -114,11 +105,11 @@
               </div>
               <label class="col-sm-2 text-right control-label col-form-label-lg">Fecha de oficio</label>
               <div class="col-md-3">
-                <input class="form-control form-control-lg" id="fecha_oficio" name="fecha_oficio">
+                <input class="form-control form-control-lg datepicker" id="fecha_oficio" name="fecha_oficio">
               </div>
               <label class="col-sm-3 text-right control-label col-form-label-lg">Fecha de recibo</label>
               <div class="col-md-3">
-                <input class="form-control form-control-lg" id="fecha_recibido" name="fecha_recibido">
+                <input class="form-control form-control-lg datepicker" id="fecha_recibido" name="fecha_recibido">
               </div>
             </div>
             <hr>

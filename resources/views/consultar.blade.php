@@ -28,9 +28,6 @@
                 <th class="text-center">N° Vp</th>
                 <th class="text-center">Recibido</th>
                 <th class="text-center">Punto</th>
-
-
-
                 <th class="text-center">Estatus</th>
                 <th class="text-center">opción</th>
               </tr>

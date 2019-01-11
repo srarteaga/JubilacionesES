@@ -19,7 +19,7 @@ class jubilacionesController extends Controller
     public function index()
     {
        $jubilado = Jubilado::orderBy('id', 'DESC')->get();
-        return view('consultar',compact('jubilado'));
+        return view('jubilaciones.index',compact('jubilado'));
 
     }
 

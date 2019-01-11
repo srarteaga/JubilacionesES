@@ -47,12 +47,15 @@ class JubiladosTable extends Migration
             $table->date('fecha_punto');
             $table->integer('nomina_id');
             $table->foreign('nomina_id')->references('id')->on('nominas');
+            $table->integer('id_user')->nullable();
+            $table->foreign('id_user')->references('id')->on('users');
         });
         Schema::create('gaceta', function(Blueprint $table){
             $table->increments('id');
             $table->string('nu_gaceta');
             $table->date('fecha_gaceta');
             $table->integer('id_user')->nullable();
+            $table->foreign('id_user')->references('id')->on('users');
         });
 
         Schema::create('jubilados', function (Blueprint $table) {
