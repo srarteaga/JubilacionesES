@@ -1,4 +1,6 @@
 $(document).ready( function () {
   $('#tablaT1').DataTable();
-  $('.datepicker').datepicker();
+  $('.datepicker').datepicker({
+  	format: 'dd-mm-yyyy'
+  });
 } );

@@ -61,22 +61,6 @@
               	<td>{{substr($model->created_at, 0, 4)}}</td>
               @endif
             </tr>
-          </tbody>
-          </table>
-            @if($model->observacion)
-              <hr>
-              <table class="table table-borderless table-hover table-jubilado text-center">
-                <tbody>
-                  <tr>
-                    <th><b>Observacion:</b></th>
-                    <td>{{$model->observacion}}</td>
-                  </tr>
-                </tbody>
-              </table>
-              <hr>
-            @endif
-          <table class="table table-borderless table-hover table-jubilado">
-            <tbody>
            		<tr>
                 <th><b>N° de Oficio:</b></th>
                 <td>{{$model->nu_oficio}}</td>
@@ -97,6 +81,18 @@
               </tr>
             </tbody>
           </table>
+            @if($model->observacion)
+              <hr>
+              <table class="table table-borderless table-hover table-jubilado text-center">
+                <tbody>
+                  <tr>
+                    <th><b>Observacion:</b></th>
+                    <td>{{$model->observacion}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <hr>
+            @endif
         </div>
       </div>
     </div>

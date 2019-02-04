@@ -28,6 +28,7 @@
     },
     "dependencies": {
         "bootstrap-datepicker": "^1.8.0",
-        "mdbootstrap": "^4.5.8"
+        "mdbootstrap": "^4.5.8",
+        "multiselect-two-sides": "^2.5.5"
     }
 }

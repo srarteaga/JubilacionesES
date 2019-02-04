@@ -33,6 +33,7 @@ Route::group(['middleware' => 'sesion'], function () {
 
 	//RUTAS VISTAS
 	Route::get('registrar', 'jubilacionesController@create')->name('RegistrarJubilado');
+	Route::get('puntocuenta', 'pCuentaController@create')->name('RegistrarPuntoCuenta');
 	Route::get('consultar', 'jubilacionesController@index')->name('ConsultarJubilado');
 	Route::get('/home', function () {
     	return view('home');
