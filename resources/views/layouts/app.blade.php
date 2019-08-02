@@ -18,34 +18,37 @@
   <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
 </head>
 <body>
-  <div class="preloader">
-    <div class="lds-ripple">
-      <div class="lds-pos"></div>
-      <div class="lds-pos"></div>
-    </div>
-  </div>
+
   <div id="main-wrapper">
-          @yield('content')
+    <div class="preloader">
+      <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+      </div>
+    </div>
+    @include('layouts.nav')
+    @include('layouts.sidebar')
+    <div id="main-wrapper">
+            @yield('content')
+    </div>
+    @include('layouts.folder')
   </div>
-  @extends('layouts.folder')
+
 
   <script src="{{ asset('js/app.js') }}"></script>
-  <script src="../libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-  <script src="../libs/sparkline/sparkline.js"></script>
-  <!--Wave Effects -->
-  <script src="../js/waves.js"></script>
-  <!--Menu sidebar -->
-  <script src="../js/sidebarmenu.js"></script>
-  <!--Custom JavaScript -->
-  <script src="../js/custom.min.js"></script>
-  <script src="../libs/flot/excanvas.js"></script>
-  <script src="../libs/flot/jquery.flot.js"></script>
-  <script src="../libs/flot/jquery.flot.pie.js"></script>
-  <script src="../libs/flot/jquery.flot.time.js"></script>
-  <script src="../libs/flot/jquery.flot.stack.js"></script>
-  <script src="../libs/flot/jquery.flot.crosshair.js"></script>
-  <script src="../libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-  <script src="../js/pages/chart/chart-page-init.js"></script>
+    <script src="{{ asset('libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js') }}"></script>
+    <script src="{{ asset('/libs/sparkline/sparkline.js') }}"></script>
+    <script src="{{ asset('js/waves.js') }}"></script>
+    <script src="{{ asset('js/sidebarmenu.js') }}"></script>
+    <script src="{{ asset('js/custom.min.js') }}"></script>
+    <script src="{{ asset('libs/flot/excanvas.js') }}"></script>
+    <script src="{{ asset('libs/flot/jquery.flot.js') }}"></script>
+    <script src="{{ asset('libs/flot/jquery.flot.pie.js') }}"></script>
+    <script src="{{ asset('libs/flot/jquery.flot.time.js') }}"></script>
+    <script src="{{ asset('libs/flot/jquery.flot.stack.js') }}"></script>
+    <script src="{{ asset('libs/flot/jquery.flot.crosshair.js') }}"></script>
+    <script src="{{ asset('libs/flot.tooltip/js/jquery.flot.tooltip.min.js') }}"></script>
+    <script src="{{ asset('js/pages/chart/chart-page-init.js') }}"></script>
     <script src="{{ asset('js/misfunciones.js') }}"></script>
 
 </body>

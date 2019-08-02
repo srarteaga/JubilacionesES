@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@extends('layouts.header')
 @section('content')
 <div class="page-wrapper">
   <div class="page-breadcrumb">
