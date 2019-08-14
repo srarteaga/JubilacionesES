@@ -13,15 +13,15 @@ class JubiladosTable extends Migration
      */
     public function up()
     {
-        Schema::create('status', function (Blueprint $table) {
+/*        Schema::create('status', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-        });
+        });*/
         /*Schema::create('nominas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nomina_tipo');
         });*/
-        Schema::create('category_entities', function (Blueprint $table) {
+/*        Schema::create('category_entities', function (Blueprint $table) {
             $table->increments('id');
             $table->string('category');
             $table->integer('user_id')->nullable();
@@ -34,7 +34,7 @@ class JubiladosTable extends Migration
             $table->foreign('category_entities_id')->references('id')->on('category_entities');
             $table->integer('user_id')->nullable();
             $table->timestamps();
-        });
+        });*/
         /*Schema::create('motivos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre_motivo');
@@ -105,9 +105,9 @@ class JubiladosTable extends Migration
         // Schema::dropIfExists('jubilados');
         // Schema::dropIfExists('punto_cuenta');
         // Schema::dropIfExists('nominas');
-        Schema::dropIfExists('entes');
-        Schema::dropIfExists('categoria_entes');
-        // Schema::dropIfExists('motivos');
-        Schema::dropIfExists('status');
+        // Schema::dropIfExists('entes');
+        // Schema::dropIfExists('categoria_entes');
+        // // Schema::dropIfExists('motivos');
+        // Schema::dropIfExists('status');
     }
 }

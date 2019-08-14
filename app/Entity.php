@@ -4,21 +4,22 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ente extends Model
+class Entity extends Model
 {   
     public $table = 'entes';
 
         protected $fillable = [
         'id',
-        'nombre_ente',
-        'categoria_id',
+        'name',
+        'category_id',
         'id_user',
-        'created_at',
-        'updated_at'
+        'entity_mpd'
+        'date'
+
     ];
 
-    public function CategoriaType(){
+  /*  public function CategoriaType(){
         return $this->belongsTo(Categoria_ente::class, 'categoria_id');
-    }
+    }*/
 }
 
