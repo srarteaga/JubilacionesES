@@ -11,7 +11,7 @@ class seederJubilaciones extends Seeder
      */
     public function run()
     {
-        $dato = array( 
+        /*$dato = array( 
        	array('1','Empleado'),
   		array('2','Obrero'),
   		array('3','Mixta')
@@ -23,9 +23,9 @@ class seederJubilaciones extends Seeder
            'nomina_tipo' => $v[1],
 
           ]); 
-    	}
+    	}*/
 
-    	$dato1 = array( 
+    	/*$dato1 = array( 
 		  array('1', 'Salud','1'),
 		  array('2', 'Reestructuración','1'),
 		  array('3', 'Supresión de Organismo','1'),
@@ -44,7 +44,7 @@ class seederJubilaciones extends Seeder
            'id_user' => $v[2],
 
           ]); 
-    	}
+    	}*/
 
     	$dato2 = array( 
 		  array('1', 'Ministerios','1'),
@@ -65,41 +65,20 @@ class seederJubilaciones extends Seeder
 
         );
        	foreach ($dato2 as $v) {
-        DB::table('categoria_entes')->insert([
+        DB::table('category_entities')->insert([
            'id' => $v[0],
-           'categoria' => $v[1],
-           'id_user' => $v[2],
+           'category' => $v[1],
+           'user_id' => $v[2],
 
           ]); 
     	}
-    	
-
-    	$dato2 = array( 
-		  array('1', 'Ministerios','1'),
-		  array('2', 'Gobernaciones','1'),
-		  array('3', 'Alcaldías','1'),
-		  array('4', 'Instituto ','1'),
-		  array('5', 'Fundaciones','1'),
-		  array('6', 'Entes Adscritos','1'),
-		  array('7', 'Empresas del Estado','1'),
-		  array('8', 'Contralorias','1'),
-		  array('9', 'Procuradurias','1'),
-		  array('10', 'Consejos Legislativos','1'),
-		  array('11', 'Corporaciones','1'),
-		  array('12', 'Cabildos','1'),
-		  array('13', 'Contraloría Municipal de Araure','1' ),
-		  array('14', 'Consejo Municipal de Turen','1'),
-		  array('15', 'Gobernación','1')
-
-        ); 
-
 
        
-        DB::table('estatus')->insert([
-		  array('id' => '0','estado' => 'En trámite'),
-		  array('id' => '1','estado' => 'Aprobado'),
-		  array('id' => '2','estado' => 'Negado'),
-		  array('id' => '3','estado' => 'Diferido')
+        DB::table('status')->insert([
+		  array('id' => '0','name' => 'En trámite'),
+		  array('id' => '1','name' => 'Aprobado'),
+		  array('id' => '2','name' => 'Negado'),
+		  array('id' => '3','name' => 'Diferido')
           ]); 
     	
 
@@ -549,11 +528,11 @@ class seederJubilaciones extends Seeder
 
         );
        	foreach ($dato4 as $v) {
-        DB::table('entes')->insert([
+        DB::table('entities')->insert([
            'id' => $v[0],
-           'nombre_ente' => $v[1],
-           'categoria_id' => $v[2],
-           'id_user' => $v[3],
+           'name' => $v[1],
+           'category_id' => $v[2],
+           'user_id' => $v[3],
 
           ]); 
     	}

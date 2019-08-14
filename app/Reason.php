@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Motivo extends Model
+class Reason extends Model
 {
-    //
+   protected $dates = ['deleted_at']; 
 }

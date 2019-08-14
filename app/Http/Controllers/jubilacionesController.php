@@ -18,8 +18,8 @@ class jubilacionesController extends Controller
      */
     public function index()
     {
-       $jubilado = Jubilado::orderBy('id', 'DESC')->get();
-        return view('jubilaciones.index',compact('jubilado'));
+       //$jubilado = Jubilado::orderBy('id', 'DESC')->get();
+        return view('jubilaciones.index'|);
 
     }
 
@@ -46,7 +46,6 @@ class jubilacionesController extends Controller
     public function store(Request $request)
     {
                 
-
         try {
             $data = collect($request->all());
             $data = $data->put('estatus_id', '0')->toArray();
@@ -66,6 +65,53 @@ class jubilacionesController extends Controller
      */
     public function show(Jubilado $id)
     {
+        
+/*        $jubilado = Jubilado::orderBy('id', 'DESC')->get();
+
+        foreach ($jubilado as $value) {
+           $data=Jubilado::where('id', $value->id)->first();
+
+
+           if ($data->date_correspondencia!=0) {
+            $data->date_correspondencia=date('Y-m-d H:i:s', $data->date_correspondencia);
+           }
+           else{
+                $data->date_correspondencia=null;
+           }
+
+            if ($data->status_date!=0) {
+            $data->status_date=date('Y-m-d H:i:s', $data->status_date);
+           }
+           else{
+                $data->status_date=null;
+           }
+
+            if ($data->user_date!=0) {
+            $data->user_date=date('Y-m-d H:i:s', $data->user_date);
+           }
+           else{
+                $data->user_date=null;
+           }
+
+
+           if ($data->date_gaceta!=0 || $data->date_gaceta != null) {
+            $data->date_gaceta=date('Y-m-d H:i:s', $data->date_gaceta);
+           }
+           else{
+                $data->date_gaceta=null;
+           }
+
+           if ($data->date_correspondencia_ent!=0) {
+            $data->date_correspondencia_ent=date('Y-m-d H:i:s', $data->date_correspondencia_ent);
+           }
+           else{
+                $data->date_correspondencia_ent=null;
+           }
+           $data->save();
+
+
+        }*/
+
         return view('jubilaciones.show', [
             'model' => $id
         ]);

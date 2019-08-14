@@ -13,29 +13,29 @@ class JubiladosTable extends Migration
      */
     public function up()
     {
-        Schema::create('estatus', function (Blueprint $table) {
+        Schema::create('status', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('estado');
+            $table->string('name');
         });
-        Schema::create('nominas', function (Blueprint $table) {
+        /*Schema::create('nominas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nomina_tipo');
-        });
-        Schema::create('categoria_entes', function (Blueprint $table) {
+        });*/
+        Schema::create('category_entities', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('categoria');
-            $table->integer('id_user')->nullable();
+            $table->string('category');
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         });
-        Schema::create('entes', function (Blueprint $table) {
+        Schema::create('entities', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre_ente');
-            $table->integer('categoria_id');
-            $table->foreign('categoria_id')->references('id')->on('categoria_entes');
-            $table->integer('id_user')->nullable();
+            $table->string('name');
+            $table->integer('category_entities_id')->unsigned();
+            $table->foreign('category_entities_id')->references('id')->on('category_entities');
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         });
-        Schema::create('motivos', function (Blueprint $table) {
+        /*Schema::create('motivos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre_motivo');
             $table->integer('id_user')->nullable();
@@ -56,9 +56,9 @@ class JubiladosTable extends Migration
             $table->date('fecha_gaceta');
             $table->integer('id_user')->nullable();
             $table->foreign('id_user')->references('id')->on('users');
-        });
+        });*/
 
-        Schema::create('jubilados', function (Blueprint $table) {
+        /*Schema::create('jubilados', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cedula');
             $table->string('nombre');
@@ -92,7 +92,7 @@ class JubiladosTable extends Migration
             $table->integer('año_registro')->nullable();
             $table->timestamps();
             $table->softDeletes();
-        });
+        });*/
     }
 
     /**
@@ -102,12 +102,12 @@ class JubiladosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jubilados');
-        Schema::dropIfExists('punto_cuenta');
-        Schema::dropIfExists('nominas');
+        // Schema::dropIfExists('jubilados');
+        // Schema::dropIfExists('punto_cuenta');
+        // Schema::dropIfExists('nominas');
         Schema::dropIfExists('entes');
         Schema::dropIfExists('categoria_entes');
-        Schema::dropIfExists('motivos');
-        Schema::dropIfExists('estatus');
+        // Schema::dropIfExists('motivos');
+        Schema::dropIfExists('status');
     }
 }

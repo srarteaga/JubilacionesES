@@ -31,8 +31,13 @@ session_start();
 
 Route::group(['middleware' => 'sesion'], function () {
 
-	//RUTAS VISTAS
-	Route::get('registrar', 'jubilacionesController@create')->name('RegistrarJubilado');
+	//RUTAS Jubilados
+	Route::get('superannuated/register', 'SuperannuatedController@create')->name('register.superannuated');
+	Route::get('superannuated/index', 'SuperannuatedController@index')->name('index.superannuated');
+	Route::get('superannuated/show/{id}', 'SuperannuatedController@show')->name('show.superannuated');
+
+
+
 	Route::get('puntocuenta', 'pCuentaController@create')->name('RegistrarPuntoCuenta');
 	Route::get('consultar', 'jubilacionesController@index')->name('ConsultarJubilado');
 	Route::get('/home', function () {
@@ -45,7 +50,6 @@ Route::group(['middleware' => 'sesion'], function () {
 	Route::get('jubilado/{id}', 'jubilacionesController@show')->name('Showjubilaciones');
 
 //RUTAS FUNCIONES
-Route::post('nuevo-jubilado', 'jubilacionesController@store')->name('Storejubilados');
 Route::get('entes', 'jubilacionesController@getEntes');
 Route::get('list', 'jubilacionesController@getlist');
 Route::get('categorias-entes', 'jubilacionesController@getCategorias');

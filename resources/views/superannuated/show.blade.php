@@ -14,79 +14,105 @@
         <h3 class="text-center">Datos del Beneficiario</h3>
         <table class="table table-borderless table-hover">
           <tbody>
-            <tr >
+            <tr>
               <th><b>Nombres:</b></th>
-              <td>{{$model->nombre}}</td>
+              <td>{{$model->name}}</td>
               <th><b>Apellidos:</b></th>
-              <td>{{$model->apellido}}</td>
+              <td>{{$model->lastname}}</td>
             </tr>
             <tr>
               <th><b>Cedula:</b></th>
-              <td>{{$model->cedula}}</td>
+              <td>{{$model->identification}}</td>
               <th><b>Edad:</b></th>
-              <td>{{$model->edad}}</td>
+              <td>{{$model->age}}</td>
             </tr>
             <tr>
               <th><b>Genero:</b></th>
-              <td>{{$model->genero}}</td>
+              <td>{{$model->gender}}</td>
               <th><b>Organismo:</b></th>
-              <td>{{$model->jubiladoEnte->nombre_ente}}</td>
+              <td>{{$model->entity_id}}</td>
             </tr>
             <tr>
               <th><b>Nomina:</b></th>
-              <td>{{$model->jubiladoNomina->nomina_tipo}}</td>
+              <td>{{$model->roster_id}}</td>
               <th><b>Estatus:</b></th>
-              <td>{{$model->jubiladoEstatu->estado}}</td>
+              <td>{{$model->status_id}}</td>
             </tr>
             <tr>
               <th><b>Antiguedad:</b></th>
-              <td>{{$model->antiguedad}}</td>
+              <td>{{$model->antiquity}}</td>
               <th><b>Motivo:</b></th>
-              <td>{{$model->jubiladoMotivo->nombre_motivo}}</td>
+              <td>{{$model->reason_id}}</td>
             </tr>
             <tr>
               <th><b>Sueldo:</b></th>
-              <td>{{$model->sueldo_promedio}}</td>
+              <td>{{$model->salary}}</td>
               <th><b>monto:</b></th>
-              <td>{{$model->monto}}</td>
+              <td>{{$model->rode}}</td>
             </tr>
             <tr>
               <th><b>Porcentaje:</b></th>
-              <td>{{$model->porcentaje}}</td>
+              <td>{{$model->percentage}}%</td>
               <th><b>Año:</b></th>
-              @if($model->año_registro)
-              	<td>{{$model->año_registro}}</td>
-              @else
+              @if($model->year)
+              	<td>{{$model->year}}</td>
+              @elseif($model->created_at)
               	<td>{{substr($model->created_at, 0, 4)}}</td>
+              @else
+                <td>Sin registro</td>
               @endif
             </tr>
            		<tr>
                 <th><b>N° de Oficio:</b></th>
-                <td>{{$model->nu_oficio}}</td>
+                @if($model->number_correspondecia)
+                  <td>{{$model->number_correspondecia}}</td>
+                @else
+                  <td>Sin registro</td>
+                @endif
                 <th><b>N° VP:</b></th>
-                <td>{{$model->nu_vp}}</td>
+                @if($model->number_vp)
+                  <td>{{$model->number_vp}}</td>
+                @else
+                  <td>Sin registro</td>
+                @endif
               </tr>
               <tr>
                 <th><b>Fecha de Oficio:</b></th>
-                <td>{{$model->fecha_oficio}}</td>
+                @if($model->date_correspondencia)
+                  <td>{{$model->date_correspondencia}}</td>
+                @else
+                  <td>Sin registro</td>
+                @endif
                 <th><b>Fecha recibido:</b></th>
-                <td>{{$model->fecha_recibido}}</td>
+                @if($model->date_correspondencia_ent)
+                  <td>{{$model->date_correspondencia_ent}}</td>
+                @else
+                  <td>Sin registro</td>
+                @endif
               </tr>
               <tr>
                 <th><b>Gaceta:</b></th>
-                <td>Todavia no se a creado este modulo</td>
+                @if($model->gaceta)
+                  <td>{{$model->gaceta}}</td>
+                @else
+                  <td>Sin registro</td>
+                @endif
                 <th><b>Fecha Gaceta:</b></th>
-                <td>todavia no se a creado este modulo</td>
+                @if($model->date_gaceta)
+                  <td>{{$model->date_gaceta}}</td>
+                @else
+                  <td>Sin registro</td>
+                @endif
               </tr>
             </tbody>
           </table>
-            @if($model->observacion)
+            @if($model->observation)
               <hr>
               <table class="table table-borderless table-hover table-jubilado text-center">
                 <tbody>
                   <tr>
                     <th><b>Observacion:</b></th>
-                    <td>{{$model->observacion}}</td>
+                    <td>{{$model->observation}}</td>
                   </tr>
                 </tbody>
               </table>

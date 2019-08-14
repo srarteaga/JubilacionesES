@@ -5,39 +5,41 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class jubilado extends Model
+class superannuated extends Model
 {	
 	// use SoftDeletes; //Implementamos 
-
+    public $table = 'superannuated';
    // protected $dates = ['deleted_at']; //Registramos la nueva columna
 
         protected $fillable = [
-            'cedula',
-            'nombre',
-            'apellido',
-            'edad',
-            'genero',
-            'antiguedad',
-            'sueldo_promedio',
-            'nomina_id',
-            'ente_id',
-            'motivo_id',
-            'monto',
-            'porcentaje',
-            'gaceta_id',
-            'observacion',
-            'fecha_gaceta',
-            'nu_vp',
+            'identification',
+            'name',
+            'lastname',
+            'age',
+            'gender',
+            'antiquity',
+            'salary',
+            'roster_id',
+            'entity_id',
+            'reason_id',
+            'rode',
+            'percentage',
+            'gaceta',
+            'date_gaceta',
+            'observation',
+            'number_correspondecia',
+            'number_vp',
             'nu_oficio',
-            'fecha_oficio',
-            'fecha_recibido',
-            'estatus_id',
-            'id_user',
-            'año_registro',
-            'fecha_gaceta'
+            'date_correspondencia',
+            'date_correspondencia_ent',
+            'status_id',
+            'status_date',
+            'user_id',
+            'user_date',
+            'year'
         ];
 
-    public function jubiladoEnte(){
+    /*public function jubiladoEnte(){
         return $this->belongsTo(Ente::class, 'ente_id');
     }
 
@@ -52,5 +54,5 @@ class jubilado extends Model
     }
     public function jubiladoEstatu(){
         return $this->belongsTo(Estatu::class, 'estatus_id');
-    }
+    }*/
 }

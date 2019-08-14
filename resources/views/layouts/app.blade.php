@@ -16,6 +16,7 @@
   <link href="{{ asset('img/bandera.png') }}" rel="icon">
   <link href="{{ asset('css/float-chart.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/my-styles.css') }}" rel="stylesheet">
 </head>
 <body>
 
@@ -29,7 +30,7 @@
     @include('layouts.nav')
     @include('layouts.sidebar')
     <div id="main-wrapper">
-            @yield('content')
+      @yield('content')
     </div>
     @include('layouts.folder')
   </div>
@@ -51,5 +52,6 @@
     <script src="{{ asset('js/pages/chart/chart-page-init.js') }}"></script>
     <script src="{{ asset('js/misfunciones.js') }}"></script>
 
+    @yield('js')
 </body>
 </html>
