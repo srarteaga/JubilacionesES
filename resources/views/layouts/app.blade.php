@@ -42,14 +42,14 @@
     <script src="{{ asset('js/waves.js') }}"></script>
     <script src="{{ asset('js/sidebarmenu.js') }}"></script>
     <script src="{{ asset('js/custom.min.js') }}"></script>
-    <script src="{{ asset('libs/flot/excanvas.js') }}"></script>
+{{--     <script src="{{ asset('libs/flot/excanvas.js') }}"></script>
     <script src="{{ asset('libs/flot/jquery.flot.js') }}"></script>
     <script src="{{ asset('libs/flot/jquery.flot.pie.js') }}"></script>
     <script src="{{ asset('libs/flot/jquery.flot.time.js') }}"></script>
     <script src="{{ asset('libs/flot/jquery.flot.stack.js') }}"></script>
     <script src="{{ asset('libs/flot/jquery.flot.crosshair.js') }}"></script>
     <script src="{{ asset('libs/flot.tooltip/js/jquery.flot.tooltip.min.js') }}"></script>
-    <script src="{{ asset('js/pages/chart/chart-page-init.js') }}"></script>
+    <script src="{{ asset('js/pages/chart/chart-page-init.js') }}"></script> --}}
     <script src="{{ asset('js/misfunciones.js') }}"></script>
 
     @yield('js')

@@ -32,9 +32,10 @@ session_start();
 Route::group(['middleware' => 'sesion'], function () {
 
 	//RUTAS Jubilados
-	Route::get('superannuated/register', 'SuperannuatedController@create')->name('register.superannuated');
+	Route::get('superannuated/create', 'SuperannuatedController@create')->name('create.superannuated');
 	Route::get('superannuated/index', 'SuperannuatedController@index')->name('index.superannuated');
 	Route::get('superannuated/show/{id}', 'SuperannuatedController@show')->name('show.superannuated');
+	Route::post('superannuated/store', 'SuperannuatedController@store')->name('store.superannuated');
 
 
 

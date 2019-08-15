@@ -8,7 +8,7 @@
         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('home')}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Inicio</span></a></li>
         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-circle"></i><span class="hide-menu">Jubilados </span></a>
           <ul aria-expanded="false" class="collapse  first-level">
-            <li class="sidebar-item"><a href="{{ route('register.superannuated') }}" class="sidebar-link"><i class="mdi mdi-account-plus"></i><span class="hide-menu"> Registrar </span></a></li>
+            <li class="sidebar-item"><a href="{{ route('create.superannuated') }}" class="sidebar-link"><i class="mdi mdi-account-plus"></i><span class="hide-menu"> Registrar </span></a></li>
             <li class="sidebar-item"><a href="{{ route('index.superannuated') }}" class="sidebar-link"><i class="mdi mdi-account-multiple-plus"></i><span class="hide-menu"> Consultar </span></a></li>
           </ul>
         </li>

@@ -12,7 +12,7 @@
       <h4 class="text-center">Lista de Beneficiarios</h4>      
       <div class="row text-center pb-5 mr-auto ml-auto">
         <div class="col-md-12 pb-5">
-          <table class="table-striped table-bordered table-hover" id="table2">
+          <table class="table-striped table-hover" id="table2">
             <thead>
               <tr>
                 <th class="text-center">id</th>
@@ -27,7 +27,6 @@
                 <th class="text-center">Fecha</th>
                 <th class="text-center">N° Vp</th>
                 <th class="text-center">Recibido</th>
-                {{-- <th class="text-center">Punto</th> --}}
                 <th class="text-center">Estatus</th>
                 <th class="text-center">Año</th>
                 <th class="text-center">opción</th>

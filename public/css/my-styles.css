@@ -9,3 +9,9 @@ footer {
 .page-breadcrumb{
 	min-height:92vh;
 }
+
+th { font-size: 16px; }
+td { font-size: 15px; }
+.icono{
+	font-size: 20px;
+}

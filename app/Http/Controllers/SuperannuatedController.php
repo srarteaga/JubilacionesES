@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Superannuated;
+use App\Roster;
+use App\Reason;
+
 
 class SuperannuatedController extends Controller
 {
@@ -17,8 +21,10 @@ class SuperannuatedController extends Controller
 
     public function create()
     {
-        return view('jubilaciones.register', [
+        return view('superannuated.create', [
             'superannuated' => Superannuated::all(),
+            'rosters' => Roster::all(),
+            'reasons' => Reason::all()
         ]);
     }
 
@@ -81,15 +87,30 @@ class SuperannuatedController extends Controller
             'model' => $id
         ]);
     }
+    public function store(Request $request)
+    {
+        $this->validator($request);
+        $id = $request->input('id');
+        $data = BankAccount::firstOrNew(['id' => $id]);
+        $data->fill($request->all());
+        $data->save();
+
+        return [
+            'success' => true,
+            'message' => ($id)?'Beneficiario editado con éxito':'Beneficiario registrado con éxito'
+        ];
+    }
+    private function validator( $data ){
+        
+        return $this->validate( $data, [
+            'name' => 'required',
+            'lastname' => 'email|required',
+            'indentification' => 'required|unique:superannuated'
+        ]);
+    }
+
     public function getSuperannuated()
     {
-/*    	$data = Superannuated::join('reasons', 'superannuated.reason_id', '=', 'reasons.id')
-            ->selectRaw('CONCAT(superannuated.name, " ", superannuated.lastname) as fullname, superannuated.id, reasons.name as reason, superannuated.identification, superannuated.roster_id, superannuated.entity_id, superannuated.number_correspondecia, superannuated.date_correspondencia, superannuated.number_vp, superannuated.date_correspondencia_ent, superannuated.status_id, superannuated.number_vp');
-
-        return datatables()->of($data)->toJson();
-*/
-
-
    		$datas = Superannuated::join('reasons', 'superannuated.reason_id', '=', 'reasons.id')
    			->join('rosters', 'superannuated.roster_id', '=', 'rosters.id')
    			->join('status', 'superannuated.status_id', '=', 'status.id')

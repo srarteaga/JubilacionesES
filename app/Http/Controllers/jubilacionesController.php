@@ -31,7 +31,6 @@ class jubilacionesController extends Controller
     public function create()
     {
         return view('jubilaciones.register', [
-            'Jubilados' => Jubilado::all(),
             'Nomina' => Nomina::all(),
             'Motivo' => Motivo::all()
         ]);
