@@ -48,4 +48,10 @@ class Superannuated extends Model
     public function status(){
         return $this->belongsTo(Status::class, 'status_id');
     }
+    public function genders(){
+        return $this->belongsTo(Gender::class, 'gender', 'code');
+    }
+    public function entities(){
+        return $this->belongsTo(Entity::class, 'entity_id');
+    }
 }

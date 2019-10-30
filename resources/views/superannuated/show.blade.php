@@ -28,9 +28,9 @@
             </tr>
             <tr>
               <th><b>Genero:</b></th>
-              <td>{{$model->gender}}</td>
+              <td>{{$model->genders->name}}</td>
               <th><b>Organismo:</b></th>
-              <td>{{$model->entity_id}}</td>
+              <td>{{$model->entities->name}}</td>
             </tr>
             <tr>
               <th><b>Nomina:</b></th>

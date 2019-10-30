@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Validator;
 use App\Superannuated;
 use App\Roster;
 use App\Reason;
+use App\CategoryEntity;
+use App\Gender;
 
 
 class SuperannuatedController extends Controller
@@ -22,9 +24,10 @@ class SuperannuatedController extends Controller
     public function create()
     {
         return view('superannuated.create', [
-            'superannuated' => Superannuated::all(),
             'rosters' => Roster::all(),
-            'reasons' => Reason::all()
+            'reasons' => Reason::all(),
+            'categories' => CategoryEntity::all(),
+            'genders' => Gender::all()
         ]);
     }
 
@@ -103,9 +106,23 @@ class SuperannuatedController extends Controller
     private function validator( $data ){
         
         return $this->validate( $data, [
-            'name' => 'required',
-            'lastname' => 'email|required',
-            'indentification' => 'required|unique:superannuated'
+            'name' => 'required|max:20',
+            'lastname' => 'required|max:20',
+            'identification' => 'numeric|required|unique:superannuated|max:20|min:4',
+            'gender' => 'required',
+            'age' => 'numeric|required|max:2|min:1',
+            'antiquity' => 'numeric|required|max:2|min:1',
+            'roster' => 'required',
+            'reason' => 'required',
+            'salary' => 'numeric|required|min:2',
+            'rode' => 'numeric|required|min:2',
+            'percentage' => 'numeric|required|min:1',
+            'observation' => 'max:255|min:5',
+            'number_correspondecia' => 'numeric',
+            'date_correspondencia' => 'date|required',
+            'number_vp' => 'numeric',
+            'date_correspondencia_ent' => 'date|required',
+
         ]);
     }
 

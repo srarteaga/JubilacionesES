@@ -17,6 +17,7 @@
   <link href="{{ asset('css/float-chart.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/my-styles.css') }}" rel="stylesheet">
+  @yield('css')
 </head>
 <body>
 
