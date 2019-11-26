@@ -20,14 +20,14 @@
           <div class="form-group row">
             <label for="name" class="col-sm-2 text-right control-label col-form-label">Nombres</label>
             <div class="col-sm-3">
-              <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name">
+              <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" autocomplete="name" value="{{ old('name') }}"  >
               @error('name')
                 <sapn class="text-danger" >{{ $message }}</sapn>
               @enderror
             </div>
             <label class="col-sm-2 text-right control-label col-form-label">Apellidos</label>
             <div class="col-sm-3">
-              <input type="text" class="form-control @error('lastname') is-invalid @enderror" id="lastname" name="lastname">
+              <input type="text" class="form-control @error('lastname') is-invalid @enderror" id="lastname" name="lastname" value="{{ old('lastname') }}">
               @error('lastname')
                 <sapn class="text-danger" >{{ $message }}</sapn>
               @enderror
@@ -36,7 +36,7 @@
           <div class="form-group row">
             <label class="col-sm-2 text-right control-label col-form-label">Cedula</label>
             <div class="col-sm-3">
-              <input type="text" class="form-control @error('identification') is-invalid @enderror" id="identification" name="identification">
+              <input type="text" class="form-control @error('identification') is-invalid @enderror" id="identification" name="identification" value="{{ old('identification') }}" >
               @error('identification')
                 <sapn class="text-danger" >{{ $message }}</sapn>
               @enderror
@@ -46,7 +46,7 @@
               <select class="custom-select form-control @error('gender') is-invalid @enderror" id="gender" name="gender">
                 <option disabled value="" selected>Seleccione un genero</option>
                 @foreach($genders as $gender)
-                  <option value="{{ $gender->code }}">{{ $gender->name }}</option>
+                  <option value="{{ $gender->code }}" {{ old('gender') == $gender->code ? 'selected' : '' }} >{{ $gender->name }}</option>
                 @endforeach
               </select>
               @error('gender')
@@ -57,14 +57,14 @@
           <div class="form-group row">
             <label class="col-sm-2 text-right control-label col-form-label">Edad</label>
             <div class="col-sm-3">
-              <input type="text" class="form-control @error('age') is-invalid @enderror" id="age" name="age">
+              <input type="text" class="form-control @error('age') is-invalid @enderror" id="age" name="age" value="{{ old('age') }}" >
               @error('age')
                 <sapn class="text-danger" >{{ $message }}</sapn>
               @enderror
             </div>
             <label class="col-sm-2 text-right control-label col-form-label">Antiguedad</label>
             <div class="col-sm-3">
-              <input type="text" class="form-control @error('antiquity') is-invalid @enderror" id="antiquity" name="antiquity">
+              <input type="text" class="form-control @error('antiquity') is-invalid @enderror" id="antiquity" name="antiquity" value="{{ old('antiquity') }}" >
               @error('antiquity')
                 <sapn class="text-danger" >{{ $message }}</sapn>
               @enderror
@@ -73,25 +73,25 @@
           <div class="form-group row">
             <label class="col-sm-2 text-right control-label col-form-label">Nomina</label>
             <div class="col-sm-3">
-              <select class="custom-select form-control @error('roster') is-invalid @enderror" id="roster" name="roster_id">
+              <select class="custom-select form-control @error('roster_id') is-invalid @enderror" id="roster" name="roster_id">
                 <option disabled value="" selected>Seleccione tipo de nomina</option>
                 @foreach($rosters as $roster)
-                  <option value="{{ $roster->id }}">{{ $roster->name }}</option>
+                  <option value="{{ $roster->id }}" {{ old('roster_id') == $roster->id ? 'selected' : '' }} >{{ $roster->name }}</option>
                 @endforeach
               </select>
-              @error('roster')
+              @error('roster_id')
                 <sapn class="text-danger" >{{ $message }}</sapn>
               @enderror
             </div>
             <label class="col-sm-2 text-right control-label col-form-label">Razón</label>
             <div class="col-sm-3">
-              <select class="custom-select form-control @error('reason') is-invalid @enderror" id="reason" name="reason_id">
+              <select class="custom-select form-control @error('reason_id') is-invalid @enderror" id="reason" name="reason_id">
                 <option disabled value="" selected>Seleccione una razón</option>
                 @foreach($reasons as $reason)
-                  <option value="{{ $reason->id }}">{{ $reason->name }}</option>
+                  <option value="{{ $reason->id }}" {{ old('reason_id') == $reason->id ? 'selected' : '' }} >{{ $reason->name }}</option>
                 @endforeach
               </select>
-              @error('reason')
+              @error('reason_id')
                 <sapn class="text-danger" >{{ $message }}</sapn>
               @enderror
             </div>
@@ -100,21 +100,21 @@
             <div class="form-group row">
             <label class="col-sm-2 text-right control-label col-form-label">Salario:</label>
             <div class="col-sm-2">
-              <input type="text" class="form-control @error('salary') is-invalid @enderror" id="salary" name="salary">
+              <input type="text" class="form-control @error('salary') is-invalid @enderror" id="salary" name="salary" value="{{ old('salary') }}" >
               @error('salary')
                 <sapn class="text-danger" >{{ $message }}</sapn>
               @enderror
             </div>
             <label class="col-sm-1 text-right control-label col-form-label">Monto:</label>
             <div class="col-sm-2">
-              <input type="text" class="form-control @error('rode') is-invalid @enderror" id="rode" name="rode">
+              <input type="text" class="form-control @error('rode') is-invalid @enderror" id="rode" name="rode" value="{{ old('rode') }}" >
               @error('rode')
                 <sapn class="text-danger" >{{ $message }}</sapn>
               @enderror
             </div>
             <label class="col-sm-1 text-right control-label col-form-label">Porcentaje:</label>
             <div class="col-sm-2">
-              <input type="text" class="form-control @error('percentage') is-invalid @enderror" id="percentage" name="percentage">
+              <input type="text" class="form-control @error('percentage') is-invalid @enderror" id="percentage" name="percentage" value="{{ old('percentage') }}" >
               @error('percentage')
                 <sapn class="text-danger" >{{ $message }}</sapn>
               @enderror
@@ -124,10 +124,10 @@
           <div class="form-group row">
             <label class="col-sm-2 text-right control-label col-form-label">Tipo de ente</label>
             <div class="col-sm-3">
-              <select class="custom-select form-control @error('category_id') is-invalid @enderror" id="category" name="category_id">
+              <select class="custom-select form-control @error('category_id') is-invalid @enderror" id="category_id" name="category_id">
                 <option disabled value="" selected>Seleccione categoria</option>
                 @foreach($categories as $category)
-                  <option value="{{ $category->id }}">{{ $category->name }}</option>
+                  <option value="{{ $category->id }}" >{{ $category->name }}</option>
                 @endforeach
               </select>
               @error('category_id')
@@ -136,10 +136,10 @@
             </div>
             <label class="col-sm-2 text-right control-label col-form-label">Ente</label>
             <div class="col-sm-3">
-              <select class="custom-select form-control @error('reason') is-invalid @enderror" id="reason" name="reason_id" disabled>
+              <select class="custom-select form-control @error('entity_id') is-invalid @enderror" id="entity_id" name="entity_id">
                 <option disabled value="" selected>Seleccione un ente</option>
               </select>
-              @error('reason')
+              @error('entity_id')
                 <sapn class="text-danger" >{{ $message }}</sapn>
               @enderror
             </div>
@@ -147,7 +147,7 @@
           <div class="form-group row">
             <label class="col-sm-12 text-right control-label col-form-label text-center">Observación:</label>
             <div class="col-sm-8 offset-2">
-              <textarea type="text" class="form-control @error('observation') is-invalid @enderror" id="observation" name="observation"></textarea>
+              <textarea type="text" class="form-control @error('observation') is-invalid @enderror" id="observation" name="observation">{{ old('observation') }}</textarea>
               @error('observation')
                 <sapn class="text-danger" >{{ $message }}</sapn>
               @enderror
@@ -158,14 +158,14 @@
           <div class="form-group row">
             <label class="col-sm-2 text-right control-label col-form-label">Numero</label>
             <div class="col-sm-3">
-              <input type="text" class="form-control @error('number_correspondecia') is-invalid @enderror" id="number_correspondecia" name="number_correspondecia">
+              <input type="text" class="form-control @error('number_correspondecia') is-invalid @enderror" id="number_correspondecia" name="number_correspondecia" value="{{ old('number_correspondecia') }}">
               @error('number_correspondecia')
                 <sapn class="text-danger" >{{ $message }}</sapn>
               @enderror
             </div>
             <label class="col-sm-2 text-right control-label col-form-label">Fecha</label>
             <div class="col-sm-3">
-              <input type="date" class="form-control @error('date_correspondencia') is-invalid @enderror" id="date_correspondencia" name="date_correspondencia">
+              <input type="date" class="form-control @error('date_correspondencia') is-invalid @enderror" id="date_correspondencia" name="date_correspondencia" value="{{ old('date_correspondencia') }}">
               @error('date_correspondencia')
                 <sapn class="text-danger" >{{ $message }}</sapn>
               @enderror
@@ -174,14 +174,14 @@
           <div class="form-group row">
             <label class="col-sm-2 text-right control-label col-form-label">Numero VP</label>
             <div class="col-sm-3">
-              <input type="text" class="form-control @error('number_vp') is-invalid @enderror" id="number_vp" name="number_vp">
+              <input type="text" class="form-control @error('number_vp') is-invalid @enderror" id="number_vp" name="number_vp" value="{{ old('number_vp') }}">
               @error('number_vp')
                 <sapn class="text-danger" >{{ $message }}</sapn>
               @enderror
             </div>
             <label class="col-sm-2 text-right control-label col-form-label">Fecha de recibido</label>
             <div class="col-sm-3">
-              <input type="date" class="form-control @error('date_correspondencia_ent') is-invalid @enderror" id="date_correspondencia_ent" name="date_correspondencia_ent">
+              <input type="date" class="form-control @error('date_correspondencia_ent') is-invalid @enderror" id="date_correspondencia_ent" name="date_correspondencia_ent" value="{{ old('date_correspondencia_ent') }}">
               @error('date_correspondencia_ent')
                 <sapn class="text-danger" >{{ $message }}</sapn>
               @enderror
@@ -196,5 +196,34 @@
     </div>
   </div>
 </div>
+
+@endsection
+@section('js')
+<script type="text/javascript">
+//Select Dependent
+  $("#category_id").change(function(event){
+   
+    var id = $('#category_id').val()
+
+    $.ajax({
+      url: '{{ route('get.entity') }}',
+      type: 'POST',
+      data: {
+        _token: '{{ csrf_token() }}',
+        id: id
+      },
+      success: function(response){
+        if(response.length > 0){
+          // $('#municipality_id').removeAttr('disabled');
+          $("#entity_id").empty();
+          $("#entity_id").append("<option value='0' disabled selected>Seleccione</option>");
+          for(i=0; i<response.length; i++){
+            $("#entity_id").append("<option value='"+response[i].id+ "'> "+response[i].name+"</option>");;
+          }
+        }
+      }
+    })
+  });
+</script>
 
 @endsection

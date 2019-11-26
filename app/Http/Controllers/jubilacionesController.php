@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Jubilado;
 use App\Nomina;
 use App\Motivo;
-use App\Ente;
+use App\Entity;
 use App\Categoria_ente;
 
 class jubilacionesController extends Controller

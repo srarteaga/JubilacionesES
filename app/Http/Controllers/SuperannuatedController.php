@@ -94,7 +94,7 @@ class SuperannuatedController extends Controller
     {
         $this->validator($request);
         $id = $request->input('id');
-        $data = BankAccount::firstOrNew(['id' => $id]);
+        $data = Superannuated::firstOrNew(['id' => $id]);
         $data->fill($request->all());
         $data->save();
 
@@ -106,22 +106,31 @@ class SuperannuatedController extends Controller
     private function validator( $data ){
         
         return $this->validate( $data, [
-            'name' => 'required|max:20',
-            'lastname' => 'required|max:20',
-            'identification' => 'numeric|required|unique:superannuated|max:20|min:4',
+            'name' => 'required|max:40',
+            'lastname' => 'required|max:40',
+            'identification' => 'required|unique:superannuated|digits_between:5,9',
             'gender' => 'required',
-            'age' => 'numeric|required|max:2|min:1',
-            'antiquity' => 'numeric|required|max:2|min:1',
-            'roster' => 'required',
-            'reason' => 'required',
-            'salary' => 'numeric|required|min:2',
-            'rode' => 'numeric|required|min:2',
-            'percentage' => 'numeric|required|min:1',
-            'observation' => 'max:255|min:5',
-            'number_correspondecia' => 'numeric',
+            'age' => 'required|digits_between:1,2',
+            'antiquity' => 'required|digits_between:1,2',
+            'roster_id' => 'required',
+            'reason_id' => 'required',
+            'category_id' => 'required',
+            'entity_id' => 'required',
+            'salary' => 'digits_between:2,15|required',
+            'rode' => 'digits_between:2,15|required',
+            'percentage' => 'digits_between:1,3|required',
+            'observation' => 'nullable|max:255|min:5',
+            'number_correspondecia' => 'nullable|digits_between:1,20',
             'date_correspondencia' => 'date|required',
-            'number_vp' => 'numeric',
+            'number_vp' => 'nullable|digits_between:1,20',
             'date_correspondencia_ent' => 'date|required',
+
+        ], [
+            'required' => 'Este campo es requerido',
+            'max' => 'El campo no debe contener más de :max caracteres.',
+            'digits_between' => 'El campo debe contener entre :min y :max dígitos.',
+            'date' => 'El campo no corresponde con una fecha válida.',
+            'identification.unique' => 'La cedula ya está en uso.',
 
         ]);
     }

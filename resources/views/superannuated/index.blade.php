@@ -29,7 +29,7 @@
                 <th class="text-center">Recibido</th>
                 <th class="text-center">Estatus</th>
                 <th class="text-center">Año</th>
-                <th class="text-center">opción</th>
+                <th class="text-center" style="width: 60px !important;">opción</th>
               </tr>
             </thead>
             <tbody>
