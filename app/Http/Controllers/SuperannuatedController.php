@@ -9,6 +9,7 @@ use App\Roster;
 use App\Reason;
 use App\CategoryEntity;
 use App\Gender;
+use App\Entity;
 
 
 class SuperannuatedController extends Controller
@@ -28,6 +29,18 @@ class SuperannuatedController extends Controller
             'reasons' => Reason::all(),
             'categories' => CategoryEntity::all(),
             'genders' => Gender::all()
+        ]);
+    }
+    public function edit(Superannuated $id)
+    {
+      return view('superannuated.edit', [
+            'model' => $id,
+            'categories' => CategoryEntity::all(),
+            'entities' => Entity::where('category_id', $id->entities->category_id)->get(),
+            'genders' => Gender::all(),
+            'rosters' => Roster::all(),
+            'reasons' => Reason::all(),
+
         ]);
     }
 
@@ -98,17 +111,14 @@ class SuperannuatedController extends Controller
         $data->fill($request->all());
         $data->save();
 
-        return [
-            'success' => true,
-            'message' => ($id)?'Beneficiario editado con éxito':'Beneficiario registrado con éxito'
-        ];
+        return redirect('superannuated/show/'.$data->id.'');
     }
     private function validator( $data ){
         
         return $this->validate( $data, [
             'name' => 'required|max:40',
             'lastname' => 'required|max:40',
-            'identification' => 'required|unique:superannuated|digits_between:5,9',
+            'identification' => 'required|digits_between:5,9|unique:superannuated,identification,'.$data->id,
             'gender' => 'required',
             'age' => 'required|digits_between:1,2',
             'antiquity' => 'required|digits_between:1,2',
@@ -116,21 +126,23 @@ class SuperannuatedController extends Controller
             'reason_id' => 'required',
             'category_id' => 'required',
             'entity_id' => 'required',
-            'salary' => 'digits_between:2,15|required',
-            'rode' => 'digits_between:2,15|required',
-            'percentage' => 'digits_between:1,3|required',
+            'salary' => 'numeric|required|between:100,99999999999999.99',
+            'rode' => 'numeric|required|between:100,99999999999999.99',
+            'percentage' => 'numeric|between:1,100',
             'observation' => 'nullable|max:255|min:5',
             'number_correspondecia' => 'nullable|digits_between:1,20',
-            'date_correspondencia' => 'date|required',
+            'date_correspondencia' => 'nullable|date',
             'number_vp' => 'nullable|digits_between:1,20',
-            'date_correspondencia_ent' => 'date|required',
+            'date_correspondencia_ent' => 'nullable|date',
 
         ], [
             'required' => 'Este campo es requerido',
             'max' => 'El campo no debe contener más de :max caracteres.',
             'digits_between' => 'El campo debe contener entre :min y :max dígitos.',
             'date' => 'El campo no corresponde con una fecha válida.',
-            'identification.unique' => 'La cedula ya está en uso.',
+            'identification.unique' => 'Esta cedula ya se encuentra registrada',
+            'between' => 'El campo debe tener un valor entre :min y :max.',
+            'numeric' => 'El campo debe ser un numero.',
 
         ]);
     }
@@ -151,7 +163,7 @@ class SuperannuatedController extends Controller
                 return '<a href="'.route("show.superannuated",$data->id).'" class="icono" title="Visualizar">
                     <b class="mdi mdi-eye radiusV"></b>
                   </a>
-                  <a href="'.route("show.superannuated",$data->id).'" class="icono" title="Modificar">
+                  <a href="'.route("edit.superannuated",$data->id).'" class="icono" title="Modificar">
                     <b class="mdi mdi-table-edit radiusM"></b>
                   </a> 
                   <a  href="#" class="icono" title="Eliminar" data-target="#Deleted" data-toggle="modal" data-id="deleteCliente/{{$ver->id}}">

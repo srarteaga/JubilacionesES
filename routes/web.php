@@ -23,7 +23,6 @@ Route::get('/login', function () {
 
 #middlewareSesion.php/kernel.php/controladorLogin /En: middlewareSesion.php / kernel.php / controllerLogin
 
-App::setLocale('es');
 
 Route::post('/sesion', 'controladorLogin@login');
 Route::get('/logout', 'controladorLogin@logout');
@@ -37,6 +36,7 @@ Route::group(['middleware' => 'sesion'], function () {
 	Route::get('superannuated/index', 'SuperannuatedController@index')->name('index.superannuated');
 	Route::get('superannuated/show/{id}', 'SuperannuatedController@show')->name('show.superannuated');
 	Route::post('superannuated/store', 'SuperannuatedController@store')->name('store.superannuated');
+	Route::get('superannuated/edit/{id}', 'SuperannuatedController@edit')->name('edit.superannuated');
 
 	Route::post('get/entity', 'EntityController@getEntities')->name('get.entity');
 
