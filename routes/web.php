@@ -38,6 +38,9 @@ Route::group(['middleware' => 'sesion'], function () {
 	Route::post('superannuated/store', 'SuperannuatedController@store')->name('store.superannuated');
 	Route::get('superannuated/edit/{id}', 'SuperannuatedController@edit')->name('edit.superannuated');
 
+	//RUTAS Gacetas
+	Route::get('gazette/index', 'GazetteController@index')->name('index.gazette');
+
 	Route::post('get/entity', 'EntityController@getEntities')->name('get.entity');
 
 	Route::get('/home', function () {

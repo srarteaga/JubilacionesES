@@ -29,9 +29,9 @@
             <span class="hide-menu">Gaceta</span>
           </a>
           <ul aria-expanded="false" class="collapse  first-level">
-            <li class="sidebar-item"><a href="#" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Registrar </span></a></li>
-            <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="mdi mdi-note-multiple-outline"></i><span class="hide-menu"> Consultar </span></a></li>
-            <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="mdi mdi-file-document-box"></i><span class="hide-menu"> Modificar </span></a></li>
+            {{-- <li class="sidebar-item"><a href="#" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Registrar </span></a></li> --}}
+            <li class="sidebar-item"><a href="{{ route('index.gazette') }}" class="sidebar-link"><i class="mdi mdi-note-multiple-outline"></i><span class="hide-menu"> Consultar </span></a></li>
+
           </ul>
         </li>
       </ul>

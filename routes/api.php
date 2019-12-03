@@ -26,3 +26,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 	)->toJson();
 });*/
 Route::middleware('sesion')->get('superannuated', 'SuperannuatedController@getSuperannuated')->name('get.superannuated');
+Route::middleware('sesion')->get('gazette', 'GazetteController@getGazette')->name('get.gazette');
