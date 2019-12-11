@@ -37,7 +37,7 @@
   </div>
 
 
-  <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js') }}"></script>
     <script src="{{ asset('/libs/sparkline/sparkline.js') }}"></script>
     <script src="{{ asset('js/waves.js') }}"></script>

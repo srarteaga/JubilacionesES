@@ -9,10 +9,10 @@
     </div>
     <hr>
     <div id="app" class="separar">
-      <h4 class="text-center">Lista de Gazzetas</h4>      
+      <h4 class="text-center">Lista de Gacetas</h4>      
       <div class="row text-center pb-5 mr-auto ml-auto">
         <div class="col-md-12 pb-5">
-          <table class="table-striped table-hover" id="table2">
+          <table class="table-striped table-hover w-100" id="table2">
             <thead>
               <tr>
                 <th class="text-center">Gaceta</th>
@@ -34,6 +34,9 @@
 <script type="text/javascript">
 
   $('#table2').DataTable({
+    "language": {
+      "url": "{{ asset('js/datatable-Spanish.json') }}"
+    },
     "processing": true,
     "serverSide": true,
     "ajax": "{{ route('get.gazette') }}",
@@ -43,7 +46,14 @@
       {data: 'total', name:'total'},
       {data: 'action', name: 'action', orderable: false, searchable: false}
 
-    ]
+    ],
+    "columnDefs": 
+    [
+      { "searchable": true, "targets": 0},
+      { "searchable": false, "targets": 1},
+      { "searchable": false, "targets": 2},
+      { "searchable": false, "targets": 3}
+    ],
   });
 
 </script>

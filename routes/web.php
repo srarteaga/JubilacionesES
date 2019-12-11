@@ -40,6 +40,10 @@ Route::group(['middleware' => 'sesion'], function () {
 
 	//RUTAS Gacetas
 	Route::get('gazette/index', 'GazetteController@index')->name('index.gazette');
+	Route::get('gazette/create', 'GazetteController@create')->name('create.gazette');
+	Route::get('gazette/show/{gaceta}', 'GazetteController@show')->name('show.gazette');
+	Route::post('gazette/store', 'GazetteController@store')->name('store.gazette');
+
 
 	Route::post('get/entity', 'EntityController@getEntities')->name('get.entity');
 
