@@ -44,7 +44,7 @@
             <optgroup label='Beneficiarios'>
               @php $valor = 1 @endphp
             @foreach($data as $row)
-            <option value='{{ $row->id }}'>{{ $valor++ }}-{{ $row->name }} {{ $row->lastname }} - CI: {{ $row->identification }}</option>
+            <option value='{{ $row->id }}'>{{ $valor++ }}-{{ $row->name }} {{ $row->lastname }} - CI: {{ $row->identification }} </option>
             @endforeach
           </optgroup>
           </select>

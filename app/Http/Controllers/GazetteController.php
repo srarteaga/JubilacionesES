@@ -18,7 +18,7 @@ class GazetteController extends Controller
 
         return view('gazette.create', 
         [
-            'data' => Superannuated::WhereNull('gaceta')->get(),
+            'data' => Superannuated::where('status_id','!=', 2)->where('status_id','!=', 3)->WhereNull('gaceta')->get(),
         ]);
 
     }
