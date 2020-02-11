@@ -43,6 +43,7 @@ Route::group(['middleware' => 'sesion'], function () {
 	Route::get('gazette/create', 'GazetteController@create')->name('create.gazette');
 	Route::get('gazette/show/{gaceta}', 'GazetteController@show')->name('show.gazette');
 	Route::post('gazette/store', 'GazetteController@store')->name('store.gazette');
+	Route::get('gazette/edit/{gaceta}', 'GazetteController@edit')->name('edit.gazette');
 
 
 	Route::post('get/entity', 'EntityController@getEntities')->name('get.entity');

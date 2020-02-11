@@ -10,6 +10,7 @@ use App\Reason;
 use App\CategoryEntity;
 use App\Gender;
 use App\Entity;
+use Session;
 
 
 class SuperannuatedController extends Controller
@@ -111,7 +112,14 @@ class SuperannuatedController extends Controller
         $data->fill($request->all());
         $data->save();
 
-        return redirect('superannuated/show/'.$data->id.'');
+        Session::flash('flash_response', ''.$data->name.' '.$data->lastname. ' CI: '.$data->identification);
+        Session::flash('flash_id', $data->id);
+
+        if (isset($id)) {
+          return redirect('superannuated/show/'.$data->id);
+        }
+
+          return redirect('superannuated/create');
     }
     private function validator( $data ){
         

@@ -12,7 +12,7 @@
   <div class="page-breadcrumb">
     <div class="row">
       <div class="col-12 d-flex no-block align-items-center">
-        <h4 class="page-title">Registrar nueva gaceta</h4>
+        <h4 class="page-title">Etitar Gaceta N° {{ $gazette->gaceta }}</h4>
       </div>
     </div>
     <hr>
@@ -25,14 +25,14 @@
         <div class="form-group row">
           <label class="col-sm-2 text-right control-label col-form-label">Numero de Gaceta</label>
           <div class="col-sm-3">
-            <input type="text" class="form-control @error('gaceta') is-invalid @enderror" id="gaceta" name="gaceta" value="{{ old('gaceta') }}" maxlength="10" minlength="3">
+            <input type="text" class="form-control @error('gaceta') is-invalid @enderror" id="gaceta" name="gaceta" value="{{ $gazette->gaceta }}" maxlength="10" minlength="3">
             @error('gaceta')
               <sapn class="text-danger" >{{ $message }}</sapn>
             @enderror
           </div>
           <label class="col-sm-2 text-right control-label col-form-label">Fecha de Gaceta</label>
           <div class="col-sm-3">
-            <input type="text" class="form-control datepicker @error('date_gaceta') is-invalid @enderror" id="date_gaceta" name="date_gaceta" value="{{ old('date_gaceta') }}">
+            <input type="text" class="form-control datepicker @error('date_gaceta') is-invalid @enderror" id="date_gaceta" name="date_gaceta" value="{{ date('d-m-Y', strtotime($gazette->date_gaceta)) }}">
             @error('date_gaceta')
               <sapn class="text-danger" >{{ $message }}</sapn>
             @enderror
@@ -45,6 +45,9 @@
               @php $valor = 1 @endphp
             @foreach($data as $row)
             <option value='{{ $row->id }}'>{{ $valor++ }}-{{ $row->name }} {{ $row->lastname }} - CI: {{ $row->identification }} </option>
+            @endforeach
+            @foreach($superannuated as $row)
+            <option value='{{ $row->id }}' selected disabled>{{ $valor++ }}-{{ $row->name }} {{ $row->lastname }} - CI: {{ $row->identification }} </option>
             @endforeach
           </optgroup>
           </select>

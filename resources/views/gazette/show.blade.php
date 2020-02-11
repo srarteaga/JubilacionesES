@@ -4,110 +4,49 @@
   <div class="page-breadcrumb">
     <div class="row">
       <div class="col-12 d-flex no-block align-items-center">
-
+        <h4 class="page-title">Gaceta N° {{ $gaceta->gaceta }} - Fecha {{ $gaceta->date_gaceta }}</h4>
       </div>
     </div>
   <hr>
   <div id="app">
-    <div class="row justify-content-md-center">
-      <div class="col-md-7">
-        <h3 class="text-center">Gaceta N° {{ $gaceta->gaceta }}</h3>
-        {{ dd($superannuated) }}
-        <table class="table table-borderless table-hover">
-          <tbody>
-            <tr>
-              <th><b>Nombres:</b></th>
-              <td>{{$model->name}}</td>
-              <th><b>Apellidos:</b></th>
-              <td>{{$model->lastname}}</td>
+    <div class="justify-content-md-center">
+      <center>
+        <h5 class="text-center">Lista de Beneficiarios de la Gaceta N° {{ $gaceta->gaceta }}</h5>
+      </center>
+      <table class="table-striped table-hover w-100" id="tablaT1">
+        <thead>
+          <tr>
+            <th class="text-center">Nombre y Apellido</th>
+            <th class="text-center">Motivo</th>
+            <th class="text-center">Ente</th>
+            <th class="text-center">Estatus</th>
+            <th class="text-center">Año</th>
+            <th class="text-center">opción</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach($superannuated as $row)
+            <tr class="tbody">
+              <td>{{$row->name}} {{ $row->lastname }}</td>
+              <td>{{$row->reasons->name}}</td>
+              <td>{{$row->entities->name}}</td>
+              <td>{{$row->status->name}}</td>
+              <td>{{$row->year}}</td>
+              <td>
+                <a href="{{ route("show.superannuated",$row->id) }}" class="icono" title="Visualizar">
+                  <b class="mdi mdi-eye radiusV"></b>
+                </a>
+                <a href="{{ route("edit.superannuated",$row->id) }}" class="icono" title="Modificar">
+                  <b class="mdi mdi-table-edit radiusM"></b>
+                </a>
+                <a  href="#" class="icono" title="Eliminar" data-target="#Deleted" data-toggle="modal" data-id="deleteCliente/{{$row->id}}">
+                  <b class="mdi mdi-delete-forever radiusE"></b>
+                </a> 
+              </td>
             </tr>
-            <tr>
-              <th><b>Cedula:</b></th>
-              <td>{{$model->identification}}</td>
-              <th><b>Edad:</b></th>
-              <td>{{$model->age}}</td>
-            </tr>
-            <tr>
-              <th><b>Genero:</b></th>
-              <td>{{$model->genders->name}}</td>
-              <th><b>Organismo:</b></th>
-              <td>{{$model->entities->name}}</td>
-            </tr>
-            <tr>
-              <th><b>Nomina:</b></th>
-              <td>{{$model->roster_id}}</td>
-              <th><b>Estatus:</b></th>
-              <td>{{$model->status_id}}</td>
-            </tr>
-            <tr>
-              <th><b>Antiguedad:</b></th>
-              <td>{{$model->antiquity}}</td>
-              <th><b>Motivo:</b></th>
-              <td>{{$model->reason_id}}</td>
-            </tr>
-            <tr>
-              <th><b>Sueldo:</b></th>
-              <td>{{$model->salary}}</td>
-              <th><b>monto:</b></th>
-              <td>{{$model->rode}}</td>
-            </tr>
-            <tr>
-              <th><b>Porcentaje:</b></th>
-              <td>{{$model->percentage}}%</td>
-              <th><b>Año:</b></th>
-              @if($model->year)
-              	<td>{{$model->year}}</td>
-              @elseif($model->created_at)
-              	<td>{{substr($model->created_at, 0, 4)}}</td>
-              @else
-                <td>Sin registro</td>
-              @endif
-            </tr>
-           		<tr>
-                <th><b>N° de Oficio:</b></th>
-                @if($model->number_correspondecia)
-                  <td>{{$model->number_correspondecia}}</td>
-                @else
-                  <td>Sin registro</td>
-                @endif
-                <th><b>N° VP:</b></th>
-                @if($model->number_vp)
-                  <td>{{$model->number_vp}}</td>
-                @else
-                  <td>Sin registro</td>
-                @endif
-              </tr>
-              <tr>
-                <th><b>Fecha de Oficio:</b></th>
-                @if($model->date_correspondencia)
-                  <td>{{$model->date_correspondencia}}</td>
-                @else
-                  <td>Sin registro</td>
-                @endif
-                <th><b>Fecha recibido:</b></th>
-                @if($model->date_correspondencia_ent)
-                  <td>{{$model->date_correspondencia_ent}}</td>
-                @else
-                  <td>Sin registro</td>
-                @endif
-              </tr>
-              <tr>
-                <th><b>Gaceta:</b></th>
-                @if($model->gaceta)
-                  <td>{{$model->gaceta}}</td>
-                @else
-                  <td>Sin registro</td>
-                @endif
-                <th><b>Fecha Gaceta:</b></th>
-                @if($model->date_gaceta)
-                  <td>{{$model->date_gaceta}}</td>
-                @else
-                  <td>Sin registro</td>
-                @endif
-              </tr>
-            </tbody>
-          </table>
-        </div>
+          @endforeach
+        </tbody>
+      </table>
       </div>
     </div>
   </div>

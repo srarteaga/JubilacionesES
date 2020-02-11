@@ -9,6 +9,17 @@
       </div>
     </div>
     <hr>
+    @if(Session::has('flash_response'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <h4 class="alert-heading">Beneficiario registrado con exito!</h4>
+        <p>Los datos del Jubilado {{Session::get('flash_response')}} han sido guardados correctamente.</p>
+        <hr>
+        <p class="mb-0">Para ver la informacion del beneficiarion registrado <a href="{{route('show.superannuated', Session::get('flash_id'))}}">CLICK ACA</a></p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    @endif
     <center>
         <h3>Datos del Beneficiario</h3>
     </center>

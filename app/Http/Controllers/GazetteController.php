@@ -54,6 +54,9 @@ luego de correr esto cambiar en la base de dato de strin a integer
 	        $data->gaceta = str_replace(array('.', ','), '' , $data->gaceta);;
 	        $data->save();
         }*/
+
+        $this->validator($request);
+
         foreach ($request->superannuated as $value) {
         	$data = Superannuated::find($value);
 	        $data->gaceta = $request->gaceta;
@@ -62,6 +65,37 @@ luego de correr esto cambiar en la base de dato de strin a integer
         }
 
     }
+
+    private function validator( $data ){
+        
+        return $this->validate( $data, [
+            'gaceta' => 'required|digits_between:3,10',
+            'date_gaceta' => 'required|date',
+            'superannuated' => 'required|array'
+        ], [
+            'required' => 'Este campo es requerido',
+            'max' => 'El campo no debe contener más de :max caracteres.',
+            'min' => 'El campo debe tener un minimo de :min caracteres',
+            'digits_between' => 'El campo debe contener entre :min y :max dígitos.',
+            'date' => 'El campo no corresponde con una fecha válida.',
+            'identification.unique' => 'Esta cedula ya se encuentra registrada',
+            'between' => 'El campo debe tener un valor entre :min y :max.',
+            'numeric' => 'El campo debe ser un numero.',
+            'superannuated.required' => 'Debe seleccionar al menos un beneficiario para completar el registro'
+
+        ]);
+    }
+
+    public function edit($gazette)
+    {
+      return view('gazette.edit', 
+        [
+            'superannuated' => Superannuated::where('gaceta', $gazette)->get(),
+            'gazette' => Superannuated::where('gaceta', $gazette)->first(),
+            'data' => Superannuated::where('status_id','!=', 2)->where('status_id','!=', 3)->WhereNull('gaceta')->get(),
+        ]);
+    }
+
     public function getGazette()
     {
    		$datas = Superannuated::
@@ -79,7 +113,7 @@ luego de correr esto cambiar en la base de dato de strin a integer
                 return '<a href="'.route("show.gazette",$data->gaceta).'" class="icono" title="Visualizar">
                     <b class="mdi mdi-eye radiusV"></b>
                   </a>
-                  <a href="'.route("edit.superannuated",$data->gaceta).'" class="icono" title="Modificar">
+                  <a href="'.route("edit.gazette",$data->gaceta).'" class="icono" title="Modificar">
                     <b class="mdi mdi-table-edit radiusM"></b>
                   </a> ';
             })

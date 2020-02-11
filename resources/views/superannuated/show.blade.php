@@ -10,6 +10,17 @@
   <hr>
   <div id="app">
     <div class="row justify-content-md-center">
+    @if(Session::has('flash_response'))
+      <div class="col-md-12">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <h4 class="alert-heading">Datos del beneficiario actualizados con exito!</h4>
+          <p>Los datos del Jubilado {{Session::get('flash_response')}} han sido guardados correctamente.</p>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    @endif
       <div class="col-md-7">
         <h3 class="text-center">Datos del Beneficiario</h3>
         <table class="table table-borderless table-hover">
@@ -34,15 +45,15 @@
             </tr>
             <tr>
               <th><b>Nomina:</b></th>
-              <td>{{$model->roster_id}}</td>
+              <td>{{$model->rosters->name}}</td>
               <th><b>Estatus:</b></th>
-              <td>{{$model->status_id}}</td>
+              <td>{{$model->status->name}}</td>
             </tr>
             <tr>
               <th><b>Antiguedad:</b></th>
               <td>{{$model->antiquity}}</td>
               <th><b>Motivo:</b></th>
-              <td>{{$model->reason_id}}</td>
+              <td>{{$model->reasons->name}}</td>
             </tr>
             <tr>
               <th><b>Sueldo:</b></th>
